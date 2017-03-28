@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 
-class HelloApp:
+class AxmlUi:
 
     def __init__(self, master):
 
@@ -25,7 +25,7 @@ class HelloApp:
 def main():
 
     root = Tk()
-    app = HelloApp(root)
+    app = AxmlUi(root)
     root.mainloop()
 
 if __name__ == "__main__": main()
