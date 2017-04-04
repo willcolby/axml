@@ -32,12 +32,12 @@ def main():
                 node.attrib['start']=inpoint
         inpoint = inpoint.rstrip('s')
         
-        print("::::::::::::::::::")
-        print("Clip ID:" + str(clipid))
-        print(":::::ORIGINAL:::::")
-        print("Sequence TC in:" + str(seqin))
-        print("Duration:" + str(duration))
-        print("Clip in point:" + str(inpoint))     
+        #print("::::::::::::::::::")
+        #print("Clip ID:" + str(clipid))
+        #print(":::::ORIGINAL:::::")
+        #print("Sequence TC in:" + str(seqin))
+        #print("Duration:" + str(duration))
+        #print("Clip in point:" + str(inpoint))     
 
         #Randomization Module
         #x=randint(3,24)
@@ -48,22 +48,22 @@ def main():
         percentage = "1/14"
         x=(Fraction(duration)*Fraction(percentage))
         
-        print(x)
+        #print(x)
         
         if (Fraction(duration) > Fraction(x)):
             new_duration = x
             clip_difference = Fraction(duration)-Fraction(new_duration)
             new_seqin = seq_duration
             new_inpoint = Fraction(inpoint)+(Fraction(clip_difference)/2)
-            print(new_inpoint)
+            #print(new_inpoint)
         else:
             new_duration = duration
             new_seqin = seqin
             new_inpoint = inpoint
             
         seq_duration += Fraction(new_duration)
-        print(new_duration)
-        print(seq_duration)
+        #print(new_duration)
+        #print(seq_duration)
         
         node.attrib['offset']=str(new_seqin)+'s'
         node.attrib['duration']=str(new_duration)+'s'
@@ -71,17 +71,18 @@ def main():
         
         
            
-        print(":::::MODIFIED:::::")
-        print("Sequence TC in:" + str(new_seqin))
-        print("Duration:" + str(new_duration))
-        print("Clip in point:" + str(new_inpoint))
-        print("::::::::::::::::::")
+        #print(":::::MODIFIED:::::")
+        #print("Sequence TC in:" + str(new_seqin))
+        #print("Duration:" + str(new_duration))
+        #print("Clip in point:" + str(new_inpoint))
+        #print("::::::::::::::::::")
         
     print("Original Sequence Duration:"+str(original_seq_duration))
     print("New Sequence Duration:"+str(seq_duration))
+    
     seq_duration = str(seq_duration)+'s'
     tree.find('library').find('event').find('project').find('sequence').attrib['duration']=seq_duration
-    #tree.write('output.fcpxml')
+    tree.write('output.fcpxml')
 
     
 
